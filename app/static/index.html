@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Lighting IoT Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>Smart Lighting IoT</h1>
+        <p>Real-Time Monitoring & Control Platform</p>
+    </div>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        System Online
+    </div>
+</header>
+
+<main>
+
+    <section class="summary">
+        <div class="summary-card">
+            <span>Total Devices</span>
+            <h2 id="totalDevices">--</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Active Devices</span>
+            <h2 id="activeDevices">--</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Inactive Devices</span>
+            <h2 id="inactiveDevices">--</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Power Consumption</span>
+            <h2><span id="totalPower">--</span> W</h2>
+        </div>
+    </section>
+
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+            <div>
+                <h2>Lighting Devices</h2>
+                <p>Monitor and control connected LED devices.</p>
+            </div>
+
+            <button onclick="loadDashboard()">Refresh Data</button>
+        </div>
+
+        <div id="deviceGrid" class="device-grid"></div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Smart Lighting IoT Platform • REST API • Real-Time Analytics</p>
+</footer>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
