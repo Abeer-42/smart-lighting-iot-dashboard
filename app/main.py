@@ -1,7 +1,8 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from datetime import datetime
-
 app = FastAPI(
     title="Smart Lighting IoT API",
     description="API for monitoring and controlling smart LED lighting devices.",
@@ -46,13 +47,12 @@ devices = [
 ]
 
 
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+
 @app.get("/")
-def home():
-    return {
-        "system": "Smart Lighting IoT Platform",
-        "status": "online",
-        "timestamp": datetime.now()
-    }
+def dashboard():
+    return FileResponse("app/static/index.html")
 
 
 @app.get("/devices")
